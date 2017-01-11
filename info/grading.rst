@@ -57,7 +57,7 @@ PM on Sunday.  If the homework is even a millisecond late, it will receive a
 zero, even if it is perfect.  
 
 Note that I stop answering e-mail well before the homework deadline, which
-means that you are left to your own devices after 4:00 PM on Friday.  Knowing
+means that you are left to your own devices after 4:00 PM on Thursday.  Knowing
 this, you are expected to take the necessary precautions to ensure your
 success.
 
