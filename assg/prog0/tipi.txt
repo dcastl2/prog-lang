@@ -1,0 +1,39 @@
+
+Here are a number of personality traits that may or may not apply to you.
+Please write a number next to each statement in place of the underscore to
+indicate the extent to which you agree or disagree with that statement. You
+should rate the extent to which the pair of traits applies to you, even if one
+characteristic applies more strongly than the other.
+
+
+1 = Disagree strongly
+2 = Disagree moderately
+3 = Disagree a little
+4 = Neither agree nor disagree
+5 = Agree a little
+6 = Agree moderately
+7 = Agree strongly
+
+
+I see myself as:
+
+
+1.  _ Extraverted, enthusiastic.
+
+2.  _ Critical, quarrelsome.
+
+3.  _ Dependable, self-disciplined.
+
+4.  _ Anxious, easily upset.
+
+5.  _ Open to new experiences, complex.
+
+6.  _ Reserved, quiet.
+
+7.  _ Sympathetic, warm.
+
+8.  _ Disorganized, careless.
+
+9.  _ Calm, emotionally stable.
+
+10. _ Conventional, uncreative.
