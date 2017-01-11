@@ -78,4 +78,4 @@ Notes
 
 **Experience**.  You need to have taken the prerequisites for this course, and
 have mastered the material, regardless of what grade you earned or your
-learning experiences in the prerequisite courses.
+particular experiences in the prerequisite courses.
