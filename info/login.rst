@@ -1,3 +1,12 @@
+Your credentials
+================
+
+Your initial username is your PAWS ID, and your initial password is your your
+LSU ID number.  You can change your password with the ``passwd`` command once
+you log in.
+
+
+
 To log in to the server from a Mac or Unix machine 
 ==================================================
 
@@ -51,5 +60,4 @@ department.  Most of you will have used PuTTY.  There are alternatives to PuTTY
 which you are free to use.  If you have a preferred SSH client, use it instead.
 A Linux Live CD is also an option if you want the features of Linux ssh, but
 don't want to commit to installing Linux to your hard drive.
-
 
