@@ -11,8 +11,9 @@ problems.
 
 
 2. Your first Haskell program.
-     [16] Write a Haskell program called ``hello.hs`` which prints "Hello, world!"
-     to the screen.  Test it with the Haskell compiler ``ghc``.  It should compile
-     with:
+     [16] Write a Haskell program called ``hello.hs`` which prints "Hello,
+     world!" to the screen.  Do a little on-line research to find out how to
+     write such a program in Haskell. Test it with the Haskell compiler
+     ``ghc``.  It should compile with:
 
         ``ghc hello.hs``
