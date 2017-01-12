@@ -29,8 +29,8 @@ Grade Breakdown
   Total                       =  1024     (100%)
 
 
-You have a preliminary exam on Wednesday, February 18, and a practice
-assignment due on Sunday, February 15 at 6:00 PM.  The preliminary exam covers
+You have a preliminary exam on Wednesday, January 18, and a practice
+assignment due on Sunday, January 15 at 6:00 PM.  The preliminary exam covers
 everything in the ``info/`` folder of this repository, and the practice
 homework will acquaint you with the server.  Combined, they are worth 6.25% of
 your final grade.  
