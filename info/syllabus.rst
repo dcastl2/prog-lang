@@ -24,7 +24,7 @@ Grade Breakdown
   Prelim         1   x   32   =    32     (03.125%)
   Homeworks      5   x   64   =   320     (31.25%)
   Tests          2   x  160   =   320     (31.25%)
-  Final          1   x  256   =   256     (25%)
+  Final          1   x  320   =   320     (31.25%)
    
   Total                       =  1024     (100%)
 
