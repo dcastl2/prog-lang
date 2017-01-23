@@ -68,10 +68,10 @@ Tuple Functions
   * ``unzip`` - from 1 list of 2-tuples make 2 lists
 
 
-Lambdas
--------
+List Comprehensions
+-------------------
 
-  * ``[x*2, x <- [1..10], x>5]`` - 
+  * ``[x*2, x <- [1..10], x>5]`` - give list 2*x for all x>5 in range 1-10
 
 
 Higher-Order Functions
