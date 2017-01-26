@@ -1,6 +1,6 @@
-odd :: Int -> Int
-odd n = if (mod n 2) == 0 then 0
-        else 1
+odd :: Int -> Bool
+odd n = if (mod n 2) == 0 then False
+        else True
 
 main = do 
        print (Main.odd 1)
