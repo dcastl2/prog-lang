@@ -29,7 +29,7 @@ days in advance of the due date.
 
 2. Calculating pi.
      [8] Write the function ``pi :: Float`` to calculate pi using the
-     Nilakantha series.  Call this ``pi.hs``.
+     Nilakantha series.  Use 100 terms of the series. Call this ``pi.hs``.
 
 
 3. Obtaining the nth prime number.
