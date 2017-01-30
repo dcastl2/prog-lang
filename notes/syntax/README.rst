@@ -214,7 +214,7 @@ A parse tree of the assignment ``cats = cats * (love + cuddles)`` can be constru
 as follows:
 
 
-.. raw::
+::
 
         <assign>
         /      \
