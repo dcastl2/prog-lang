@@ -303,8 +303,8 @@ Attribute grammars consist of:
 
 * Synthesized attributes are computed using semantic functions which depend
   only on the values of attributes of child nodes.  Inherited attributes are
-  computed using semantic functions which depend only on the values of ancestor
-  nodes.
+  computed using semantic functions which depend only on the values of parent
+  and sibling nodes.
 
 * A predicate function takes the form of a boolean expression on the union
   of the total attribute set. 
@@ -335,7 +335,12 @@ as the name referenced in the end.
  predicate:  <func_name>[1].string == <func_name>[2].string
 
 
-Consider an attribute grammar which can check type:
+Consider the following attribute grammar, which can check and enforce type.
+Variable types are provided in a lookup table, which can be obtained by parsing
+variable declarations.  The type of an expression is dependent upon the types
+of sub-expressions.  For example, if two variables are added, and if one is a
+floating-point number, the expression type should be a floating-point number;
+otherwise an integer.
 
 ::
 
@@ -358,4 +363,82 @@ Consider an attribute grammar which can check type:
  <var>.actual_type <- look-up(<var>.string)
 
 
+When we parse a sentence described by an attribute grammar, we construct a
+parse tree; but we compute attributes, a process called **decoration**.  We
+compute inherited attributes from the top down, and synthesized attributes from
+the bottom up.
+
+
+::
+
+                            <assign>
+                           /        \
+                       <var>        <expr>
+                         |         /      \
+                         A    <var>   +   <var>
+                                |           |
+                                A           B
+
+
+Consider the above parse tree for ``A = A + B``, which we construct in-order.
+We follow the rules for computing its attributes at the first available
+opportunity in our traversal:
+
+ 1. ``<var>.actual_type <- look-up(<var>.string)``: when we have parsed ``A``
+    as a variable.  This is an intrinsic attribute.
+
+ 2. ``<expr>.expected_type <- <var>.actual_type``: once we have traversed
+    back up the parse tree and down to ``<expr>``, we set the expected type
+    of ``<expr>``.  This is an inherited attribute because it depends on
+    its sibling node.
+    
+ 3. ``<var>.actual_type <- look-up(<var>.string)``: computed once we reach 
+    the second ``A``. 
+
+ 4. ``<var>.actual_type <- look-up(<var>.string)``: computed once we reach 
+    ``B``. 
+
+ 5. ``<expr>.actual_type <- if ...``: once we have traversed back up the 
+    parse tree to ``<expr>``, we can compute this.  It is a synthesized
+    attribute because it depends on the actual types of its sub-expressions,
+    which are stored in child nodes.
+
+ 6. ``<expr>.actual_type == <expr>.expected_type``: this is a predicate
+    function which ensures that the expected type of the expression (which
+    is the type of the LHS ``<var>``) is the same as the type of the 
+    expression which was formed.
+
+
+Consider another attribute grammar, modified from the earlier example of a
+BNF grammar which supports precendence of multiplication:
+
+::
+
+  <assign> -> <var> = <expr>
+  <var>.value = <expr>.value
+
+  <var>    -> A | B | C
+
+  <expr>[1] -> <expr>[2] + <term> 
+  <expr>[1].value = <expr>[2].value + <term>.value
+  
+  <expr> -> <term> 
+  <expr>.value = <term>.value
+
+  <term>[1] -> <term>[2] * <factor> 
+  <term>[1].value = <term>[2].value * <term>.value
+
+  <term> -> <factor>
+  <term>.value = <factor>.value
+
+  <factor> -> ( <expr> )
+  <factor>.value = <expr>.value
+
+  <factor> -> <int_literal>
+  <factor>.value = strToInt(<int_literal>.string)
+
+
+Here, values of variables are determined by initialization in the
+production ``<assign> -> <var> = <int_literal>``.  Can you write
+a parse tree for ``A = (2 + 3) * 5``?
 
