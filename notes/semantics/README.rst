@@ -243,3 +243,10 @@ The rule of sequence can be expressed as follows:
       {P1} S1, S2 {P3}
 
 
+Example problem:
+
+::
+
+  y = 3 * x + 1
+  x = y + 3
+  {x > 10}
