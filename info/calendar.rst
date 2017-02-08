@@ -16,22 +16,22 @@ The following is a tentative calendar.
 | 01/22         | Functional Programming    | Functional Programming          |
 |               |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 01/29         | Syntax/Semantics          | Syntax/Semantics                |
+| 01/29         | Syntax                    | Syntax                          |
 |               |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 02/05         | Lexical Analysis          | Lexical Analysis                |
+| 02/05         | Semantics                 | Semantics                       |
 |  ^prog1       |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 02/12         | Logic Programming         | **Test 1**                      |
+| 02/12         | Functional Programming    | **Test 1**                      |
 |               |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 02/19         | Names, Bindings, Scopes   | Names, Bindings, Scopes         |
+| 02/19         | Lexical Analysis          | Lexical Analysis                |
 |               |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 02/26         | Mardi Gras                | Data Types                      |
+| 02/26         | Mardi Gras                | Logic Programming               |
 |  ^prog2       |                           |                                 |
 +---------------+---------------------------+---------------------------------+
-| 03/05         | Data Types                | Data Types                      |
+| 03/05         | Names, Bindings, Scopes   | Data Types                      |
 |               |                           |                                 |
 +---------------+---------------------------+---------------------------------+
 | 03/12         | Expressions, Assignments  | Expressions, Assignments        |
