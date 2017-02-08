@@ -20,6 +20,7 @@ higher language.
                                        goto end
                                     sum = sum + i
                                     i = i + 1
+                                    goto loop
                                     end:
                                        return sum
                                       
@@ -39,6 +40,7 @@ semantics may be generalized, as below:
                                        goto end
                                     body         
                                     upd      
+                                    goto loop
                                     end:
                                        outside
 
@@ -82,7 +84,7 @@ the binary number ``110``. Denotational semantics can be used to evaluate
   M('0') = 0
   M('1') = 1
   M(<bin> '0') = 2 * M(<bin>)
-  M(<bin> '0') = 2 * M(<bin>) + 1
+  M(<bin> '1') = 2 * M(<bin>) + 1
 
 In the above example, the syntactic objects are mapped to the set of natural
 numbers.  For example ``'0'`` indicates the binary number, but the function
@@ -190,8 +192,8 @@ statement, general axiomatic semantics for assignment statements is
 ``{Qx->E} x = E {Q}``.
 
 
-Rule of Inference
------------------
+Rule of Consequence
+-------------------
 
 Suppose we were trying to find the precondition for the following, which has a
 slightly weaker postcondition:
@@ -202,7 +204,7 @@ slightly weaker postcondition:
 
 This is valid, because ``y > 10`` implies ``y > 9``, which is the strongest
 possible postcondition for the precondition ``x > 4``.  However to prove it,
-we require the **rule of inference**:
+we require the **rule of consequence**:
 
 ::
 
@@ -211,7 +213,7 @@ we require the **rule of inference**:
           {P'} S {Q'}
 
 The symbol ``=>`` means *implies*.  For example ``P'`` implies ``P`` if
-whenever ``P'`` is true, ``P`` is true.  The rule of inference expresses
+whenever ``P'`` is true, ``P`` is true.  The rule of consequence expresses
 the notion that postconditions can always be weakened and preconditions
 can always be strengthened. 
 
@@ -250,3 +252,174 @@ Example problem:
   y = 3 * x + 1
   x = y + 3
   {x > 10}
+
+Here the postcondition is ``{x > 10}``.  Working out the precondition requires
+``{x > 6}``. This provides the postcondition for the statement ``y = 3 * x +
+1``.  Working out the precondition here requires as the final postcondition ``x > 1``.
+Hence we have the Hoare triple
+
+::
+
+  {x > 1}  y = 3 * x + 1;  x = y + 3  {x > 10}
+
+and the intermediate condition ``{x > 6}``.
+
+
+Rule of Selection
+-----------------
+
+Selection statements take the form ``if B then S1 else S2``.
+
+::
+  
+  {B and P} S1 {Q}, [(not B) and P] S2 {Q}
+  ________________________________________
+        {P} if B then S1 else S2 {Q}
+
+
+Consider the selection structure
+
+::
+
+  if x > 0 then
+    y = y + 1
+  else 
+    y = y + 1
+
+Suppose we have the postcondition ``{y > 0}``. We must then find the
+weakest precondition out of the following:
+
+::
+
+  y = y + 1  {y > 0}
+  y = y - 1  {y > 0}
+
+
+For ``y = y + 1  {y > 0}`` it is ``{y > -1}``, and for ``y = y - 1  {y > 0}``
+it is ``{y > 1}``. The weaker of these two is ``{y > 1}``, since if we allow
+only ``{y > -1}``, such as in a ``y`` value of ``0``, we will violate the
+postcondition.
+
+
+Logical Pretest Loops
+---------------------
+
+For the case of loops, we seek something called a **loop invariant**, which
+is a condition that remains true through subsequent iterations of the loop.
+The loop invariant must be true before, during, and after execution of the
+loop.
+
+::
+
+           {I and B} S {I}
+  ____________________________________
+  {I} while B do S end {I and (not B)}
+
+
+For example, consider the following loop:
+
+::
+
+  while y != x do y = y + 1 end {y = x}
+
+Now we wish to find the precondition, which is the loop invariant.  We seek
+something which remains true throughout.
+
+What we can do is successively find the weakest precondition of the loop
+postcondition and the loop statement.  We may use a function *wp(statement,
+postcondition)* to do so.  Such a function is known as a **predicate
+transformer** because it accepts a predicate and statement and returns a
+predicate.
+
+::
+
+  wp(y = y + 1, {y = x})     = {y = x - 1}
+  wp(y = y + 1, {y = x - 1}) = {y = x - 2}
+  ...
+
+Evidently the condition ``{y < x}`` satisfies during iterations of the
+loop, but we must combine this with the postcondition ``{y = x}``, which
+yields ``{y <= x}``.
+
+
+Program Proofs
+--------------
+
+The proof of a program requires the application of rules backwards from
+the post-condition.
+
+::
+
+  {n > 1}
+  s = 0
+  i = 1
+  while i<=n 
+  do 
+    s = s + i
+    i = i + 1 
+  end 
+  {s = 1+2+...+n}
+
+
+In this more complicated example of a loop for summation, our postcondition
+holds that s should be the sum of numbers 1 to n inclusive.  We seek the loop
+invariant.  But first, let us have a look at the loop condition.  ``{B}`` is
+``{i <= n}``, therefore ``(not {B})`` is ``{i > n}``.  Consider then
+
+::
+
+  i = i + 1 {i > n}
+
+According to the rule of assignment, on the last iteration the precondition
+``{i > n - 1}`` would need to be satisfied, so we have ``{i > n - 1} i = i + 1
+{i > n}``.  It can be shown also that ``{i = n} i = i + 1 {i = n + 1}``, and
+clearly ``{i = n + 1}``  implies ``{i > n}``.  ``i`` does not appear on the LHS
+of any other expression of the loop, so it is safe to conclude that ``{i = n +
+1}`` is the strongest postcondition which violates ``{B}``.
+
+Let us examine the compound statement ``s = s + i; i = i + 1`` on the final
+iteration of the loop.
+
+::
+
+  s = s + i; i = i + 1 {i = n + 1, s = 1+2+...+n}
+
+From the above, we have
+
+::
+
+  s = s + i; {i = n} i = i + 1 {i > n, s = 1+2+...+n}
+
+Then letting ``{s = 1+2+...+n}`` be also a postcondition for the statement ``s = s +
+i``, we can deduce that:
+
+::
+
+  {s = 1+2+...+n-1} s = s + i {i = n}   i = i + 1 {i = n+1, s = 1+2+...+n)   
+  {s = 1+2+...+n-2} s = s + i {i = n-1} i = i + 1 {i = n,   s = 1+2+...+n-1)   
+  ...
+
+In the first of these we may substitute ``i = n``:
+
+::
+
+  {s = 1+2+...+i-1, i = n - 1} s = s + i {i = n - 1} i = i + 1 {i = n,   s = 1+2+...+i-1)   
+  {s = 1+2+...+i-1, i = n - 2} s = s + i {i = n - 2} i = i + 1 {i = n-1, s = 1+2+...+i-1)   
+  ...
+
+So it appears our loop invariant is ``{s = 1+2+...+i-1}``. Let us check to see
+if it qualifies as a loop precondition:
+
+::
+
+  {s = 0, i = 1} s = s + i {i = 1}  i = i + 1 {i = 2, s = 1+...+i-1)   
+
+Thus the invariant ``s = 1+...+i-1`` holds after, during, and prior to the
+loop.  Therefore we have
+
+::
+
+    
+        {s = 1+2+...+i-1} s = s + i; i = i + 1 {s = 1+2+...+i-1}
+  ____________________________________________________________________________
+  {n > 1, s = 0, i = 1} while i<=n do s = s + i; i = i + 1 end {s = 1+2+...+n}
