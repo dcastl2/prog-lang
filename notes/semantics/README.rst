@@ -16,7 +16,7 @@ higher language.
 
   for (i=0; i<=n; i++)              i=0
       sum += i;                     loop:
-                                    if i<=n:
+                                    if i>n:
                                        goto end
                                     sum = sum + i
                                     i = i + 1
@@ -36,7 +36,7 @@ semantics may be generalized, as below:
 
   for (init; cond; upd)             init 
       body                          loop:
-  outside                           if cond:
+  outside                           if not cond:
                                        goto end
                                     body         
                                     upd      
@@ -219,18 +219,18 @@ can always be strengthened.
 
 We have already found that ``{x > 4} y = 2 * x + 1  {y > 10}`` is valid,
 so our ``P`` is ``x > 4``, ``S`` is ``y = 2 * x + 1``, and ``Q`` is
-``x > 9``.  The Hoare triple in the consequent has precondition
-``x > 4``, which is our ``P'``, and postcondition ``x > 10``, which is
+``y > 10``.  The Hoare triple in the consequent has precondition
+``x > 4``, which is our ``P'``, and postcondition ``y > 9``, which is
 ``Q'``.  
 
 We must show that ``P' => P`` and ``Q => Q'``.  Clearly ``x > 4`` implies ``x >
-4``. Also ``y > 9`` implies ``y > 10``. Putting it all together:
+4``. Also ``y > 10`` implies ``y > 9``. Putting it all together:
 
 ::
 
-  {x > 4} y = 2 * x + 1  {y > 9}, {y > 4} => {y > 4}, {y > 9} => {y > 10}
+  {x > 4} y = 2 * x + 1  {y > 9}, {x > 4} => {x > 4}, {y > 10} => {y > 9}
   _______________________________________________________________________
-                   {x > 4} y = 2 * x + 1  {y > 10}
+                   {x > 4} y = 2 * x + 1  {y > 9}
 
 
 Rule of Sequence
@@ -254,15 +254,15 @@ Example problem:
   {x > 10}
 
 Here the postcondition is ``{x > 10}``.  Working out the precondition requires
-``{x > 6}``. This provides the postcondition for the statement ``y = 3 * x +
-1``.  Working out the precondition here requires as the final postcondition ``x > 1``.
+``{y > 7}``. This provides the postcondition for the statement ``y = 3 * x +
+1``.  Working out the precondition here requires as the final postcondition ``x > 2``.
 Hence we have the Hoare triple
 
 ::
 
-  {x > 1}  y = 3 * x + 1;  x = y + 3  {x > 10}
+  {x > 2}  y = 3 * x + 1;  x = y + 3  {x > 10}
 
-and the intermediate condition ``{x > 6}``.
+and the intermediate condition ``{y > 7}``.
 
 
 Rule of Selection
@@ -284,7 +284,7 @@ Consider the selection structure
   if x > 0 then
     y = y + 1
   else 
-    y = y + 1
+    y = y - 1
 
 Suppose we have the postcondition ``{y > 0}``. We must then find the
 weakest precondition out of the following:
