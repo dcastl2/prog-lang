@@ -73,3 +73,156 @@ known as ``LL(k) parsers``.
 Similarly there exist ``LR parsers`` which scan input left-to-right but obtain
 a right derivation of the input.  The most common bottom-up parsers are in the
 LR family.
+
+
+Bottom-Up Parsers
+=================
+
+Bottom-up parsers construct a parse tree from the leaves up to the root of the
+tree.  The parse order is the line-wise reverse of a right derivation.  The
+problem of bottom-up parsing is finding which rule on the RHS of productions
+to apply next.
+
+Consider:
+
+::
+
+  S -> aAc
+  A -> aA | b
+
+And the string ``aabc``.  A bottom-up parser selects a RHS which appears in
+the string.  In this case, that is ``b``.  So ``aabc`` becomes ``aaAc``. 
+From there, the parser selects a RHS, that is ``aA``.  So ``aaAc`` becomes
+``aAc``.  This matches the RHS of the start symbol.  So we have:
+
+::
+
+  aabc -> aaAc -> aAc -> S
+
+
+Recursive Descent Problems
+==========================
+
+Left Recursion
+--------------
+
+LL parsers may fall victim to left recursion. Consider the rule ``A -> A | B``.
+In this case, the parser will infinitely recursively descend into the rule
+``A``.  This is called **direct left recursion**.  Grammars may also suffer
+from indirect left recursion (there exist algorithms to remove such recursion).
+This type of left recursion can be eliminated using a process:
+
+1. Group A-rules so that ``A -> Aα1 | Aα2 | ... | β1 | β2 ...``, that is
+   so that no ``A`` appears before a ``β``. 
+
+2. Replace the original ``A`` rules with:
+
+::
+
+  A  -> β1A' | β2A' | ...
+  A' -> α1A' | α2A' | ... | ε
+
+which results in the same effective grammar but with ``A`` rules removed from
+the left side of any RHS of ``A``.  Consider the following grammar:
+
+::
+
+  E -> E + T | T
+  T -> T * F | F
+  F -> E | (id)
+
+``E`` appears on the left of the RHS of ``E`` and ``T`` appears on the left of
+the RHS of ``T``.  If we apply the process, we must find ``α1`` and ``β1`` and
+create new rules ``E'`` and ``T'``.  For ``E``, ``α1`` is  ``+ T``, and ``β1``
+is ``T``. Plugging this in to the above:
+
+::
+
+  E  -> T E'
+  E' -> + T E' | ε
+
+Similarly for ``T``:
+
+::
+
+  T  -> F T'
+  T' -> * F T' | ε
+
+There is no left-recursion for ``F``. So the entire grammar becomes 
+
+::
+
+  E  -> T E'
+  E' -> + T E' | ε
+  T  -> F T'
+  T' -> * F T' | ε
+  F -> E | (id)
+
+
+Pairwise Disjointness
+---------------------
+
+A recursive descent parser needs to be able to select the rule based on 
+the next token of input.  There exists a test of whether or not this
+can be done, called the **pairwise disjointness test**.  It involves
+computing sets based on the RHS of nonterminals in the grammar.  These
+sets are called FIRST, and are computed as follows:
+
+:: 
+
+  FIRST( α ) = { a | α ->* aβ }
+
+
+Here, the symbol ``->*`` means zero or more derivation steps.  What this means
+is, "the set of all such terminal symbols a, such that they can be reached in
+zero or more derivation steps from α".  The pairwise disjointness test is
+as follows:
+
+::
+
+  FIRST(αi)  ∩  FIRST(αj)  =   ∅
+
+That is to say, for a given nonterminal, no terminal symbol should be reachable
+by applying two or more of the RHS rules for that nonterminal.  As an example:
+
+::
+
+  A -> aB | bAb | Bb
+  B -> cB | d
+
+
+``FIRST(A)`` is {``a``}, {``b``}, and {``c``, ``d``}.  No terminal appears in
+more than one set, so ``A`` is pairwise disjoint.  But consider
+
+
+::
+
+  A -> aB | bAb | Bb
+  B -> cB | b
+
+
+``FIRST(A)`` is {``a``}, {``b``}, and {``c``, ``b``}.  Now the nonterminal
+``b`` appears in two sets, which means that a recursive descent parser cannot
+determine which rule to select based on the nonterminal ``b``.
+
+For simple cases we can remedy this using **left factoring**.  Consider the
+grammar
+
+::
+
+  A -> bB | bC
+  B -> c
+  C -> d
+
+``A`` is not pairwise disjoint, however we can modify the grammar so that it
+becomes pairwise disjoint: 
+
+::
+
+  A -> bD
+  D -> B | C
+  B -> c
+  C -> d
+
+Here, we have factored out the terminal ``b`` and introduced a new nonterminal
+``D`` which allows recursive descent into rules ``B`` and ``C``.
