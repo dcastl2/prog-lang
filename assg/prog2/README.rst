@@ -23,7 +23,7 @@ your Makefile.  Submit only your sources, Makefile, and run.sh.
      ASCII.  The animation should be 25 rows x 60 cols [8], have a framerate of
      30 Hz [4], last for no more than 10 seconds [4], use at least three colors
      [8], be such that no two consecutive frames in the animation are the same
-     [8], and be unique [-32].  Call this ``asciimation.cpp``.
+     [8], and be unique [-32].  Call this ``asciimation.hs``.
 
 
 3. A text-mode map.
