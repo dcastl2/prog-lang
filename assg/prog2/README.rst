@@ -55,7 +55,7 @@ your Makefile.  Submit only your sources, Makefile, and run.sh.
 
      a. Combining this with map functionality for a bi-modal game.
           [16] You may complete this role-playing game to have a battle mode
-          and an overworld mode as per problem 1 (main).  Your overworld mode
+          and an overworld mode as per problem 3 (main).  Your overworld mode
           should lead to random encounters 10% of the time, and you should add
           another command ``search`` that enables you to gather healing
           potions which occupy 10% density on the map.  For bonus points, you
