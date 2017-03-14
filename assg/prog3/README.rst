@@ -1,6 +1,8 @@
 Homework 3
 ==========
 
+Choose 64 points worth of problems.
+
 **Note**: you must provide a ``Makefile`` and a ``run.sh`` script for this
 assignment [-32].
 
@@ -8,32 +10,32 @@ assignment [-32].
 
 1. Higher-order derivatives.
      [16] Implement the function ``dx :: (Float -> Float) -> (Float -> Float)``
-     which accepts a function and returns its derivative as a function. Also
+     which accepts a function and returns its derivative as a function [8]. Also
      write ``ddx :: (Float -> Float) -> Int -> (Float -> Float)`` which accepts
      a function and an integer (call it *n*) and retuns the nth derivative of
-     that function.  Note that the return type should be a function.  Call this
-     ``derivative.hs``.
+     that function [8].  Note that the return type should be a function.  Call 
+     this ``derivative.hs``.
 
 
 2. Implementing higher-order functions.
-     [16[ Implement the functions ``map :: (a -> a) -> [a] -> [a]`` and
-     ``filter :: (a -> Bool) -> [a] -> [a]`` from scratch in HAskell.  Also
-     implement ``multimap :: (a -> [a]) -> [a] -> [[a]]`` which applies
+     [16[ Implement the functions ``map :: (a -> a) -> [a] -> [a]`` [4] and
+     ``filter :: (a -> Bool) -> [a] -> [a]`` [8] from scratch in Haskell.  Also
+     implement ``multimap :: (a -> [a]) -> [a] -> [[a]]`` [8] which applies
      mappings for functions that return lists.  Call this ``multimap.hs``.
 
 
 3. Pedigrees using logic programming.
      [16] Write a Prolog rule set defining mother, father, brother, sister,
      grandmother, grandfather, aunt, uncle, neice, nephew, and cousin in terms
-     of parent, sibling, male and female.  Call this ``pedigree.pl``.
+     of parent, sibling, male and female [1x16].  Call this ``pedigree.pl``.
 
 
 4. Lists in a logic programming language.
      [16] Learn about lists in Prolog, then write a Prolog program with
-     functions ``rrotate(P, N, Q)`` which accepts a list ``P`` and number
+     functions ``rrotate(P, N, Q)`` [8] which accepts a list ``P`` and number
      ``N`` and defines ``Q`` as the right-rotation by ``N`` elements of
-     ``P``. Write also a similar function ``lrotate(P, N, Q)``.  Call this
-     ``rotate.pl``.
+     ``P``. Write also a similar function ``lrotate(P, N, Q)`` [8].  Call 
+     this ``rotate.pl``.
 
 
 5. Computational translations of Cartesian functions to polar coordinates.
@@ -42,13 +44,14 @@ assignment [-32].
      polar-coordinate function (call it *r(t)*, where *t* is the angle theta).
      Since you only have access to *t* and *y(x)* in this function, you will
      have to use the Newton-Raphson method to find the particular *x* and *y*
-     values corresponding to *t*.  Once you have these you can obtain a value
-     for *r*.  Call this ``polar.hs``.
+     values corresponding to *t* [16].  Once you have these you can obtain a 
+     value for *r* [16].  Call this ``polar.hs``.
 
 
 6. Using lexers for symmetric block-cipher encryption.
      [32] Use ``lex`` to create a symmetric block cipher algorithm for
-     encrypting plain text.  The input will take the form:
+     encrypting [16] and decrypting [16] plain text.  The input will take the 
+     form:
 
      ::
 
@@ -82,7 +85,7 @@ assignment [-32].
 7. An interpreter for the language brainfuck (BF).
      [32] Write an interpreter for BF in pure C which accepts BF codes 1
      megabyte in size, allocates 1 kilobyte of memory, and uses a 1 kilobyte
-     stack to hold information about brackets.  It should conform to the
+     stack to hold information about brackets [8].  It should conform to the
      language specifications given here:
 
        https://en.wikipedia.org/wiki/Brainfuck
@@ -90,12 +93,12 @@ assignment [-32].
      Note that brackets can be nested.  The interpreter should accept an
      optional command-line argument, that is the name of a file to interpret.
      If no command-line argument is given, it should accept commands from
-     stdin.  Call this ``bf.c``.
+     stdin [8].  Call this ``bf.c``.
 
      I am aware that there are many such interpreters on-line, and I expect
      that you will view them.  So a few extensions to the language should
      be introduced. Your interpreter should also support the following
-     commands:
+     commands [16]:
 
       * ``;`` should accept a string from stdin, similar to ``,`` does
         for characters.  It does not change the tape pointer.
@@ -120,10 +123,10 @@ assignment [-32].
 
      Write such a code in Python, which can match statements of the form:
      ``<statement> -> {% (<letter>) <python_code> %}`` using regular
-     expressions (use Python's ``re`` module).  The ``<letter>`` is a lowercase
-     alphabetic letter.  The ``<python_code>`` itself should be executed in the
-     order indicated by the alphabetic letters.  For example, running the code
-     on the following:
+     expressions (use Python's ``re`` module) [8].  The ``<letter>`` is a 
+     lowercase alphabetic letter.  The ``<python_code>`` itself should be 
+     executed in the order indicated by the alphabetic letters.  For example, 
+     running the code on the following:
 
      ::
 
@@ -135,7 +138,7 @@ assignment [-32].
        number in a location in the document well after referencing it. 
        {% (b) x = random.randint(1,6) %}.  
        
-     would produce:
+     would produce [8]:
 
      ::
 
@@ -146,7 +149,7 @@ assignment [-32].
        document. Thus I might generate the random number in a location in the
        document well after referencing it. 
       
-     The statements are executed in-order:
+     The statements are executed in-order [8]:
 
         ::
 
@@ -157,6 +160,6 @@ assignment [-32].
 
      You will need to use the ``exec`` function in Python.  To get the output
      back, you will need to redirect output to your own stream.  Your program
-     should accept a filename as a command-line argument to operate on.  Call
-     it ``doxecute.py``.
+     should accept a filename as a command-line argument to operate on [8].  
+     Call it ``doxecute.py``.
 
