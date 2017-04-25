@@ -1,0 +1,98 @@
+1. Use the rules of assignment and sequence to find the precondition for
+   the following code:
+
+   x = x - 1
+   y = x + 1
+   {y > 5}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Use the rule of selection to find the precondition for the following
+   code.  You will need to find both preconditions and combine them using
+   a little math.
+
+   if x > 0
+      x = x - 1
+   else
+      x = x + 1
+   {x = 0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Find the loop invariant for the following:
+
+   x = 1
+   while x < 16
+   do
+     x = 2 * x
+   end
+   {x = 16}
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell code with signature ``dig_root :: Int -> Int`` which finds
+   the digital root of an integer.  The digital root of an integer is the
+   sum of its digits, recursively applied until a single digit is obtained.

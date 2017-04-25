@@ -1,0 +1,103 @@
+1. Write a Prolog program which defines father, mother, grandmother, and
+   grandfather, in terms of male, female, parent.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a Prolog program which defines sum(X,Y), where Y is the sum of
+   numbers from 1 to X.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Write a BF program which multiplies two numbers in Cell 0 and Cell 1
+   into Cell 2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell program which accepts two functions, f and g, and a value x.
+   It returns the derivative at a point for composed functions:
+
+    chain :: (Float -> Float) -> (Float -> Float) -> Float -> Float 
+
+    (f ∘ g)' = (f' ∘ g) ⋅ g'
+
+   at the point x.  You may assume you have the function for computing
+   derivatives at a point, whose signature is:
+
+    dd :: (Float -> Float) -> Float -> Float
+

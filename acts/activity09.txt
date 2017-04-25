@@ -1,0 +1,98 @@
+1. Define the terms LL(1) parser, recursive descent parser, LR parser, 
+   direct left recursion, pairwise disjoint.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Re-write the following grammar to avoid direct left recursion.
+
+   A -> A * B | B
+   B -> B - C | B + C
+   D -> x | y | z
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Apply the pairwise disjointness test to the nonterminal A of the 
+   following grammar.  Re-write the grammar such that it parses the
+   same language but is pairwise-disjoint.
+
+   A -> aC | bB
+   B -> C  | aC
+   C -> b
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write the function ``zero :: (Float -> Float) -> Float -> Float`` which
+   finds the zero of a function using Newton's method.  It should accept an
+   x value as an initial guess and return the x-value for the zero nearest
+   to the initial guess.  The x-value found should be such that |f(x)| < 1e-2.

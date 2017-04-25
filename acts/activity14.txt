@@ -1,0 +1,103 @@
+1. Define visibility, local/global, parent/ancestor scope, static/dynamic 
+   scope, referencing environment.
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Assuming the codes below use static scoping, what do they print?
+
+   int x = 2;
+   void X() {
+     void Y() {
+       int x = 3;
+       int y = 5;
+     }
+     int y = 7;
+     void Z() {
+       int z = 13;
+       printf("%d\n", x+y+z);
+     }
+     int z = 11;
+     Z();
+   }
+      
+   int x = 2;
+   void Z() {
+     x = 3;
+     void Y() {
+       y = 5;
+     }
+     int y = 7;
+     Y();
+     void X() {
+       z = z + x;
+       printf("%d\n", x+y+z);
+     }
+     int z = 11;
+     X();
+   }
+
+3. Assuming the codes below use dynamic scoping, what do they print?
+
+   int x = 2;
+   void X() {
+     x = 3;
+     void Y() {
+       y = 5;
+     }
+     int y = 7;
+     Y();
+     void Z() {
+       z = z + x;
+       printf("%d\n", x+y+z);
+     }
+     int z = 11;
+     Z();
+   }
+
+   int x = 2;
+   void X() {
+     void Y() {
+       int x = 3;
+       int y = 5;
+     }
+     int y = 7;
+     void Z() {
+       int z = 13;
+       printf("%d\n", x+y+z);
+     }
+     int z = 11;
+     Z();
+   }
+
+
+4. Write a Haskell code ``cascade :: (a -> a) -> Int -> (a -> a)``
+   which accepts a function f and composes it with itself n times.
+   For example if n=5, then it returns a function:
+
+     f ∘ f ∘ f ∘ f ∘ f 

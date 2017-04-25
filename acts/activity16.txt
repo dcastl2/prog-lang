@@ -1,0 +1,237 @@
+1. Fill in the circle(s) for the statements which is/are false.
+
+   ○  It is impossible for a subprogram to be both a function and a 
+      procedure.
+
+   ○  It is possible for a callee function to be the same as the 
+      caller function (that is, have the same signature).
+
+   ○  If a function is active, then it is impossible for its function
+      node to reside at the bottom of the function stack.
+
+   ○  All nodes within a function stack must have return addresses
+      beyond the entry point of their callers.
+
+   ○  It is possible for an anonymous function to be overloaded.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Fill in the circle(s) for the statement which is/are true.
+
+   ○  Parameters may be either positional and keyword, but it is
+      impossible for them to be both.
+
+   ○  It is possible to write impure functions in pure languages, but 
+      it it is not possible to write pure functions in impure languages.
+   
+   ○  It is impossible to supply formal paramters for which in the
+      subroutine call there are no actual parameters.
+   
+   ○  If a procedure uses only in-mode parameters, yet changes data
+      visible outside its scope, then it is necessarily impure.
+
+   ○  It is possible to pass an expression or a literal as an actual
+      argument in inout-mode parameter passing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. All but one of the following statements is nonsensical.  Fill in the circle 
+   corresponding to that statement.
+
+   ○  If an entry point is received via in-mode paramter passing from the caller,
+      then the actual parameter will assume the value of the formal parameter
+      upon the subprogram's return.
+
+   ○  If a value is copied via out-mode paramter passing to the callee, then 
+      the actual parameter will assume the access path of the formal parameter
+      upon the subprogram's return.
+
+   ○  If an access path is transmitted via out-mode paramter passing to the 
+      callee, then the formal paramter will not assume the value of the actual
+      parameter at the subprogram's entry point.
+
+   ○  If an entry point is referenced via inout-mode paramter passing, then 
+      the actual parameter of the address path will assume the formal paramter
+      of the value.
+
+   ○  If an access path is passed by pass-by-value-result then the actual
+      parameter of the callee will not be available to the caller until the
+      entry point is reached.
+
+
+
+
+
+
+
+
+
+4. Fill in the circle(s) for the statement which is/are logically valid.
+
+   ○  If a language is context-free, then it may be described by
+      regular expressions.
+
+   ○  If a language is regular, then it is both context-free and
+      context-sensitive.
+
+   ○  If a language is context-sensitive, then it may be described by
+      BNF grammars.
+
+   ○  If a language is context-free, then it may be described using
+      a DFA.
+
+   ○  If a language is describable by a PDA, then it is regular.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. For which of the following does the start state coincide with the
+   finish state?
+
+   ○  (b*a+)+
+
+   ○  ((a|b)+)*
+
+   ○  a(ba+)*
+
+   ○  ε
+
+   ○  ab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. Which of the following regular expressions must be described
+   using an NDFA?
+
+   ○  (b*a+)+
+
+   ○  ((a|b)+)*
+
+   ○  (ba+)*
+
+   ○  ε
+
+   ○  a|ε
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. Which of the following grammars passes the pairwise disjointness
+   test?
+
+   ○  A->A|B|a    B->B|c
+
+   ○  A->A|B|a    B->A|b
+
+   ○  A->A|B|b    B->a|b
+
+   ○  A->A|B|a    B->B|C|b    C->C|c
+
+   ○  A->A|B|a    B->B|C|b    C->b|c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8. One of the following recursive codes is infinite. Fill in the
+   circle for that code.
+
+   ○  sum (x:xs) = x + (sum xs)
+      sum []     = 0
+
+   ○  fact n = n * (fact (n-1))
+      fact 1 = 1
+
+   ○  fib n = (fib (n-1)) + (fib (n-2))
+      fib 1 = 1
+
+   ○  golden n = 1 + 1 / (golden (n-1))
+      golden 1 = 1

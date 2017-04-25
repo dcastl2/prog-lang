@@ -1,0 +1,94 @@
+1. Write a code in Haskell with signature ``spaces :: [Char] -> Int`` which
+   counts the number of spaces in a string.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a Haskell code with signature ``log2 :: Int -> Int`` which 
+   accepts an integer and determines its base-2 logarithm, rounded
+   down, without the aid of any math functions except division.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Write a Haskell code with signature ``search :: [Int] -> Int -> Bool`` which
+   determines if a given integer resides in the integer list.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Wite a Haskell code with signature ``rrotate :: [Int] -> Int -> Int`` which 
+   right-rotates an integer list by n elements.

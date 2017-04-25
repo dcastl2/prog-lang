@@ -1,0 +1,94 @@
+1. Write a code in Haskell with signature ``perfect :: Int -> Bool`` which
+   determines whether the given integer n is perfect.  An integer is perfect
+   iff the sum from 1 to n is equal to the product from 1 to n.  Thus 6 is
+   a perfect number because 1+2+3 = 1*2*3 = 6.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a Haskell code with signature ``pow :: Int -> Int -> Int`` which 
+   accepts an integer ``a`` and an integer ``n`` and calculates ``a^n``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Write a Haskell code with signature ``golden :: Int -> Float`` which 
+   calculates the golden ratio.  The golden ratio p is recursively calculated
+   with the formula:
+
+     p_{n} = 1 + 1/p_{n-1}
+
+   Your code accepts an integer, which represents n, the number of recursive
+   calls remaining.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Wite a Haskell code with signature ``digits :: Int -> Int`` which accepts
+   an integer and returns the number of digits in it.  For example 
+   ``(digits 2357)`` should return 4, since 2357 has 4 digits in it.

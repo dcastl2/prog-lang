@@ -1,0 +1,100 @@
+1. Draw a DFA for the regular expression a*b+.  Draw also a DFA for
+   the regular expression a(ab+)*.  Are the preceding languages described
+   by these expressions context-free?  Give a regular expression which can
+   match all the strings:  bc, abc, aabc, abbc, bbc; but which does not match 
+   the empty string.  Drawn is a DFA. What is the regular expression for
+   it?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Draw a PDA for the language described by the grammar A -> 00A11 | e.
+   Is the preceding language described by these expressions regular?  
+   Give the corresponding BNF grammar for the language 02n13m.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Give the steps in the algorithm for re-writing a grammar to avoid direct
+   left recursion.  Re-write the following grammar such that it avoids direct 
+   left recursion.
+
+   A -> A * a | A + a | T | S
+   T -> T + C | T - A | S
+   C -> catface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Define the pairwise disjointness test condition; give the mathematical
+   definition.  Apply the pairwise disjointness test to the grammar below.
+   Re-write the grammar rule C -> aT | aS using left factoring so that it passes
+   the pairwise disjointness test.  Finally, re-write the grammar below so 
+   that it passes the pairwise disjointness test.
+
+   A -> aA | aB | B | ε
+   B -> bB | ε

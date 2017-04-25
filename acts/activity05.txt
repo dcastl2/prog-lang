@@ -1,0 +1,97 @@
+1. (a) Define and (b) give the purpose of the three types of semantics.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Give the operational semantics for the following C code using a simpler
+   intermediate language.
+
+   x = 10;
+   do {
+    x = (x % 2 == 0) ? x : x-1;
+   } while (x--);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Find the weakest precondition for the following statement and postcondition
+   using the rule of assignment. Then using the rule of inference, prove the
+   Hoare triple below it.
+
+   x = x + 1 {x>0}
+   {x>0} x = x + 1 {x>0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell code with signature ``sqrt :: Float -> Float`` which finds
+   the square root of a floating-point number within 1e-2 accuracy.

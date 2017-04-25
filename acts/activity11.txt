@@ -1,0 +1,96 @@
+1. Re-write the following grammar to avoid direct left recursion.
+
+   A -> A * B | B
+   B -> B - C | B + C
+   D -> x | y | z
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Apply the pairwise disjointness test to the nonterminal A of the 
+   following grammar.  Re-write the grammar such that it parses the
+   same language but is pairwise-disjoint.
+
+   A -> aC | bB
+   B -> C  | aC
+   C -> b
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Draw a pushdown automaton for the grammar 0²ⁿ1ⁿ, n ∈ N.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell function with signature ``integrate ::
+   (Float -> Float) -> (Float -> Float)`` which accepts a
+   function and returns the function which is the integral 
+   of the input function.

@@ -1,0 +1,99 @@
+1. Define the terms syntax, semantics, lexeme, grammar, nonterminal, 
+   terminal, and production. 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a grammar which can construct the following program:
+
+
+   if (blue) {
+     do {
+       dial = 2;
+     } while (true);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Write the parse tree for the sentence  c = (a + b) * c.  Is the grammar
+   ambiguous, and if so, why?
+   
+
+   <prog>  -> begin <stmts> end
+   <stmts> -> <stmt>; <stmts>
+   <stmt>  -> <var> = <expr>
+   <expr>  -> <expr> + <expr>
+            | <expr> * <expr>
+            | <var>
+            | literal_integer
+   <var>   -> a | b | c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Wite a Haskell code with signature ``composites :: [Int]`` which can 
+   generate an infinite list of composite numbers.  Use the filter function
+   and a list comprehension to achieve this goal.  You are free to write any 
+   auxiliary functions you require.

@@ -1,0 +1,94 @@
+1. Write the function ``size :: Queue -> Int`` which computes the size of a
+   queue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write the function ``delete :: List -> Int -> List`` which finds the
+   first occurrence of a node with an integer and returns a list with
+   that node removed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Write the function ``reverse :: Stack -> Stack`` which returns the reverse
+   of a stack.
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write the function ``isBalanced :: Tree -> Bool`` which checks to see
+   if the tree is balanced.  A tree is balanced if the heights of the left 
+   and right subtrees differ by no more than one.

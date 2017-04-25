@@ -1,0 +1,103 @@
+1. (a) What is an attribute grammar? What is its purpose?  (b) What
+   are the three components of an attribute grammar?  (c) What is
+   the difference between a synthesized and inherited attribute?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Write a grammar which can construct the following program:
+
+   while (snuggles  < cuddles) 
+      if (struggles < snuggles)
+          snuggles++;
+     else struggles++;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Draw a decorated parse tree using the attribute grammar for determining
+   values from constant expressions using the assignment: 
+
+   A = 2 * (3 + 5)
+
+   Number the computed attributes in the parse tree in the order they are
+   computed, and indicate whether each computed attribute is inherited
+   or synthesized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell code with signature ``f :: [Int] -> [Int]`` which accepts a
+   list of integers.  It returns a list wherein for each element n of the given
+   list, it computes n!.  Thus given the list [1, 2, 3, 4, 5], it should return
+   [1, 2, 6, 24, 120].  Use the map function and/or list comprehensions in
+   your solution.

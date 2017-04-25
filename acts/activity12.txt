@@ -1,0 +1,95 @@
+1. Define LR parser, shift and reduce operations, and context-free language.
+   Also give the informal definition of a phrase.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Give the formal definitions of handle and simple phrase. According to
+   the definition, what are two ways in which a handle may be different 
+   from a simple phrase?  How is a handle in a rightmost derivation defined 
+   in terms of simple phrase?
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Draw a pushdown automaton for the language 0ⁿ1²ⁿ, n ∈ N.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Write a Haskell function with signature ``series :: (Int -> Float) -> (Int
+   -> Float)`` which accepts a function to compute the nth element of a 
+   sequence and returns a function which is the finite series from 1 to n of 
+   that sequence.
